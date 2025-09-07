@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>భారతీయ జనతా పార్టీ - స్వాగతం</title>
+  <style>
+    body {
+      font-family: 'Noto Sans Telugu', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fdf6e3;
+      text-align: center;
+    }
+    header {
+      background-color: #ff9933;
+      color: white;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .leaders {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .leader-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+    .leader-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+    .form-section {
+      background: #ffffff;
+      margin: 30px auto;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 500px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+      text-align: left;
+    }
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .form-section label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .form-section input, .form-section select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .form-section button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background-color: #ff9933;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .form-section button:hover {
+      background-color: #e6891d;
+    }
+    footer {
+      background-color: #138808;
+      color: white;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    భారతీయ జనతా పార్టీ (BJP) కు స్వాగతం
+  </header>
+
+  <section class="leaders">
+    <div class="leader-card">
+      <img src="images/Media.jpg" alt="Leader 1">
+      <h3>గౌరవనీయ నాయకుడు</h3>
+    </div>
+    <div class="leader-card">
+      <img src="images/leader1.jpg" alt="Leader 2">
+      <h3>పార్టీ అధ్యక్షుడు</h3>
+    </div>
+    <div class="leader-card">
+      <img src="images/leader2.jpg" alt="Leader 3">
+      <h3>ముఖ్య నేత</h3>
+    </div>
+    <div class="leader-card">
+      <img src="images/leader3.jpg" alt="Leader 4">
+      <h3>ప్రజా ప్రతినిధి</h3>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <h2>సభ్యత్వ నమోదు ఫారమ్</h2>ss
+    <form>
+      <label>పేరు :</label>
+      <input type="text" name="name" required>
+
+      <label>తండ్రి పేరు :</label>
+      <input type="text" name="fatherName" required>
+
+      <label>వయసు :</label>
+      <input type="number" name="age" required>
+
+      <label>లింగం :</label>
+      <select name="gender">
+        <option value="male">పురుషుడు</option>
+        <option value="female">స్త్రీ</option>
+        <option value="other">ఇతరులు</option>
+      </select>
+
+      <label>గ్రామం :</label>
+      <input type="text" name="village">
+
+      <label>మండలం :</label>
+      <input type="text" name="mandal">
+
+      <label>జిల్లా :</label>
+      <input type="text" name="district">
+
+      <label>రాష్ట్రం :</label>
+      <input type="text" name="state">
+
+      <label>వృత్తి :</label>
+      <input type="text" name="profession">
+
+      <label>ఫోన్ నంబర్ :</label>
+      <input type="tel" name="phone">
+
+      <label>రక్తపు గ్రూప్ :</label>
+      <input type="text" name="bloodGroup">
+
+      <button type="submit">నమోదు చేయండి</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 భారతీయ జనతా పార్టీ | దేశం ముందుకు
+  </footer>
+</body>
+</html>
+
+
