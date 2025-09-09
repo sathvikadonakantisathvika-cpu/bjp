@@ -3,25 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>భారతీయ జనతా పార్టీ - స్వాగతం</title>
+  <title>BJP - Login & Membership</title>
   <style>
     body {
-  font-family: 'Noto Sans Telugu', sans-serif;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-
-  /* Background image settings */
-  background: url("images/logo.jpg") no-repeat center center fixed;
-  background-size: cover;
-}
+      font-family: 'Noto Sans Telugu', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url("images/logo.jpg") no-repeat center center fixed;
+      background-size: cover;
+    }
     header {
       background-color: #ff9933;
       color: white;
       padding: 20px;
       font-size: 28px;
       font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+    header button {
+      background: #138808;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+    /* Login Section */
+    .login-box {
+      background: rgba(255,255,255,0.95);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+      width: 350px;
+      text-align: center;
+      margin: 100px auto;
+    }
+    .login-box h2 {
+      margin-bottom: 20px;
+      color: #ff9933;
+    }
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: #ff9933;
+      border: none;
+      color: white;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .login-box button:hover {
+      background-color: #e6891d;
+    }
+
+    /* Leaders grid */
     .leaders {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -39,6 +86,8 @@
       height: auto;
       border-radius: 12px;
     }
+
+    /* Form section */
     .form-section {
       background: #ffffff;
       margin: 30px auto;
@@ -78,84 +127,119 @@
     .form-section button:hover {
       background-color: #e6891d;
     }
+
     footer {
       background-color: #138808;
       color: white;
       padding: 15px;
       margin-top: 20px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <header>
-    భారతీయ జనతా పార్టీ (BJP) కు స్వాగతం
-  </header>
 
-  <section class="leaders">
-    <div class="leader-card">
-      <img src="images/Media.jpg" alt="Leader 1">
-      <h3>గౌరవనీయ నాయకుడు</h3>
-    </div>
-    <div class="leader-card">
-      <img src="images/leader1.jpg" alt="Leader 2">
-      <h3>పార్టీ అధ్యక్షుడు</h3>
-    </div>
-    <div class="leader-card">
-      <img src="images/leader2.jpg" alt="Leader 3">
-      <h3>ముఖ్య నేత</h3>
-    </div>
-    <div class="leader-card">
-      <img src="images/leader3.jpg" alt="Leader 4">
-      <h3>ప్రజా ప్రతినిధి</h3>
-    </div>
-  </section>
+  <!-- Login Section -->
+  <div id="loginPage" class="login-box">
+    <h2>లాగిన్</h2>
+    <input type="text" id="username" placeholder="యూజర్ పేరు" required>
+    <input type="password" id="password" placeholder="పాస్‌వర్డ్" required>
+    <button onclick="login()">లాగిన్ చేయండి</button>
+  </div>
 
-  <section class="form-section">
-    <h2>సభ్యత్వ నమోదు ఫారమ్</h2>
-    <form>
-      <label>పేరు :</label>
-      <input type="text" name="name" required>
+  <!-- Main Page -->
+  <div id="mainPage" class="hidden">
+    <header>
+      భారతీయ జనతా పార్టీ (BJP) కు స్వాగతం
+      <button onclick="logout()">Logout</button>
+    </header>
 
-      <label>తండ్రి పేరు :</label>
-      <input type="text" name="fatherName" required>
+    <section class="leaders">
+      <div class="leader-card">
+        <img src="images/Media.jpg" alt="Leader 1">
+        <h3>గౌరవనీయ నాయకుడు</h3>
+      </div>
+      <div class="leader-card">
+        <img src="images/leader1.jpg" alt="Leader 2">
+        <h3>పార్టీ అధ్యక్షుడు</h3>
+      </div>
+      <div class="leader-card">
+        <img src="images/leader2.jpg" alt="Leader 3">
+        <h3>ముఖ్య నేత</h3>
+      </div>
+      <div class="leader-card">
+        <img src="images/leader3.jpg" alt="Leader 4">
+        <h3>ప్రజా ప్రతినిధి</h3>
+      </div>
+    </section>
 
-      <label>వయసు :</label>
-      <input type="number" name="age" required>
+    <section class="form-section">
+      <h2>సభ్యత్వ నమోదు ఫారమ్</h2>
+      <form>
+        <label>పేరు :</label>
+        <input type="text" name="name" required>
 
-      <label>లింగం :</label>
-      <select name="gender">
-        <option value="male">పురుషుడు</option>
-        <option value="female">స్త్రీ</option>
-        <option value="other">ఇతరులు</option>
-      </select>
+        <label>తండ్రి పేరు :</label>
+        <input type="text" name="fatherName" required>
 
-      <label>గ్రామం :</label>
-      <input type="text" name="village">
+        <label>వయసు :</label>
+        <input type="number" name="age" required>
 
-      <label>మండలం :</label>
-      <input type="text" name="mandal">
+        <label>లింగం :</label>
+        <select name="gender">
+          <option value="male">పురుషుడు</option>
+          <option value="female">స్త్రీ</option>
+          <option value="other">ఇతరులు</option>
+        </select>
 
-      <label>జిల్లా :</label>
-      <input type="text" name="district">
+        <label>గ్రామం :</label>
+        <input type="text" name="village">
 
-      <label>రాష్ట్రం :</label>
-      <input type="text" name="state">
+        <label>మండలం :</label>
+        <input type="text" name="mandal">
 
-      <label>వృత్తి :</label>
-      <input type="text" name="profession">
+        <label>జిల్లా :</label>
+        <input type="text" name="district">
 
-      <label>ఫోన్ నంబర్ :</label>
-      <input type="tel" name="phone">
+        <label>రాష్ట్రం :</label>
+        <input type="text" name="state">
 
-      <label>రక్తపు గ్రూప్ :</label>
-      <input type="text" name="bloodGroup">
+        <label>వృత్తి :</label>
+        <input type="text" name="profession">
 
-      <button type="submit">నమోదు చేయండి</button>
-    </form>
-  </section>
+        <label>ఫోన్ నంబర్ :</label>
+        <input type="tel" name="phone">
 
-  <footer>
-    © 2025 భారతీయ జనతా పార్టీ | దేశం ముందుకు
-  </footer>
+        <label>రక్తపు గ్రూప్ :</label>
+        <input type="text" name="bloodGroup">
+
+        <button type="submit">నమోదు చేయండి</button>
+      </form>
+    </section>
+
+    <footer>
+      © 2025 భారతీయ జనతా పార్టీ | దేశం ముందుకు
+    </footer>
+  </div>
+
+  <script>
+    function login() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === "bjp" && pass === "1234") {
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("mainPage").classList.remove("hidden");
+      } else {
+        alert("తప్పు యూజర్ పేరు లేదా పాస్‌వర్డ్");
+      }
+    }
+
+    function logout() {
+      document.getElementById("mainPage").classList.add("hidden");
+      document.getElementById("loginPage").classList.remove("hidden");
+    }
+  </script>
+
 </body>
 </html>
