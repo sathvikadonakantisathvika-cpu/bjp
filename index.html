@@ -5,23 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bharatiya Janata Party - Multi-Language</title>
   <style>
-    body {font-family: Arial, sans-serif; margin:0; padding:0; text-align:center;
+    body {margin:0; font-family:Arial, sans-serif; text-align:center;
       background:url("images/logo.jpg") no-repeat center center fixed; background-size:cover;}
     header {background:#ff9933; color:white; padding:20px; font-size:28px; font-weight:bold;}
     nav {background:rgba(255,255,255,0.9); padding:10px;}
     nav select {padding:5px; font-size:16px;}
+
+    .login-section {background:#ff9933; padding:30px; max-width:400px; margin:20px auto;
+      border-radius:12px; color:white; box-shadow:0 4px 10px rgba(0,0,0,0.2);}
+    .login-section label {display:block; text-align:left; margin-top:10px;}
+    .login-section input {width:100%; padding:8px; margin-top:5px; border-radius:6px; border:none;}
+    .login-section button {margin-top:20px; width:100%; padding:10px; background:#138808;
+      border:none; color:white; font-size:18px; border-radius:6px; cursor:pointer;}
+    .login-section button:hover {background:#0f6606;}
+
     .leaders {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:20px;}
     .leader-card {background:rgba(255,255,255,0.95); border-radius:12px; padding:15px;
       box-shadow:0 4px 10px rgba(0,0,0,0.1);}
     .leader-card img {width:100%; border-radius:12px;}
+
     .form-section {background:rgba(255,255,255,0.95); margin:30px auto; padding:20px;
       max-width:500px; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.2); text-align:left;}
     footer {background:#138808; color:white; padding:15px; margin-top:20px;}
-    label {display:block; margin-top:10px; font-weight:bold;}
-    input, select {width:100%; padding:8px; margin-top:5px; border:1px solid #ccc; border-radius:6px;}
-    button {margin-top:20px; width:100%; padding:10px; background:#ff9933; border:none; color:white;
-      font-size:18px; border-radius:6px; cursor:pointer;}
-    button:hover {background:#e6891d;}
+    label {font-weight:bold;}
   </style>
 </head>
 <body>
@@ -36,21 +42,34 @@
 
   <header id="pageTitle">Welcome to Bharatiya Janata Party (BJP)</header>
 
+  <!-- LOGIN SECTION -->
+  <section class="login-section">
+    <h2 id="loginTitle">Login</h2>
+    <form id="loginForm">
+      <label id="emailLbl">Email:</label>
+      <input type="email" required>
+      <label id="passwordLbl">Password:</label>
+      <input type="password" required>
+      <button type="button" id="faceBtn">🔍 Face Recognition</button>
+      <button type="submit" id="loginBtn">Login</button>
+    </form>
+  </section>
+
   <section class="leaders">
     <div class="leader-card">
-      <img src="media.jpg" alt="Leader">
+      <img src="images/media.jpg" alt="Leader">
       <h3 id="leader1">Respected Leader</h3>
     </div>
     <div class="leader-card">
-      <img src="leader1.jpg" alt="Leader">
+      <img src="images/leader1.jpg" alt="Leader">
       <h3 id="leader2">Party President</h3>
     </div>
     <div class="leader-card">
-      <img src="leader2.jpg" alt="Leader">
+      <img src="images/leader2.jpg" alt="Leader">
       <h3 id="leader3">Key Leader</h3>
     </div>
     <div class="leader-card">
-      <img src="leader3.jpg" alt="Leader">
+      <img src="images/leader3.jpg" alt="Leader">
       <h3 id="leader4">Public Representative</h3>
     </div>
   </section>
@@ -84,6 +103,11 @@
     const texts = {
       en: {
         title: "Welcome to Bharatiya Janata Party (BJP)",
+        loginTitle: "Login",
+        emailLbl: "Email:",
+        passwordLbl: "Password:",
+        faceBtn: "🔍 Face Recognition",
+        loginBtn: "Login",
         leader1: "Respected Leader",
         leader2: "Party President",
         leader3: "Key Leader",
@@ -105,35 +129,47 @@
         bloodLbl: "Blood Group:",
         submitBtn: "Register",
         footer: "© 2025 Bharatiya Janata Party | Nation First",
-        alert: "Your registration has been successfully received. Thank you!"
+        alert: "Your registration has been successfully received. Thank you!",
+        loginAlert: "Login successful! Welcome."
       },
       te: {
         title: "భారతీయ జనతా పార్టీ (BJP) కు స్వాగతం",
+        loginTitle: "లాగిన్",
+        emailLbl: "ఈమెయిల్:",
+        passwordLbl: "పాస్వర్డ్:",
+        faceBtn: "🔍 ముఖ గుర్తింపు",
+        loginBtn: "లాగిన్",
         leader1: "గౌరవనీయ నాయకుడు",
         leader2: "పార్టీ అధ్యక్షుడు",
         leader3: "ముఖ్య నేత",
         leader4: "ప్రజా ప్రతినిధి",
         formTitle: "సభ్యత్వ నమోదు ఫారమ్",
-        nameLbl: "పేరు :",
-        fatherLbl: "తండ్రి పేరు :",
-        ageLbl: "వయసు :",
-        genderLbl: "లింగం :",
+        nameLbl: "పేరు:",
+        fatherLbl: "తండ్రి పేరు:",
+        ageLbl: "వయసు:",
+        genderLbl: "లింగం:",
         maleOpt: "పురుషుడు",
         femaleOpt: "స్త్రీ",
         otherOpt: "ఇతరులు",
-        villageLbl: "గ్రామం :",
-        mandalLbl: "మండలం :",
-        districtLbl: "జిల్లా :",
-        stateLbl: "రాష్ట్రం :",
-        professionLbl: "వృత్తి :",
-        phoneLbl: "ఫోన్ నంబర్ :",
-        bloodLbl: "రక్తపు గ్రూప్ :",
+        villageLbl: "గ్రామం:",
+        mandalLbl: "మండలం:",
+        districtLbl: "జిల్లా:",
+        stateLbl: "రాష్ట్రం:",
+        professionLbl: "వృత్తి:",
+        phoneLbl: "ఫోన్ నంబర్:",
+        bloodLbl: "రక్తపు గ్రూప్:",
         submitBtn: "నమోదు చేయండి",
         footer: "© 2025 భారతీయ జనతా పార్టీ | దేశం ముందుకు",
-        alert: "మీ నమోదు విజయవంతంగా అందుకున్నాం. ధన్యవాదాలు!"
+        alert: "మీ నమోదు విజయవంతంగా అందుకున్నాం. ధన్యవాదాలు!",
+        loginAlert: "లాగిన్ విజయవంతం! స్వాగతం."
       },
       hi: {
         title: "भारतीय जनता पार्टी (BJP) में आपका स्वागत है",
+        loginTitle: "लॉगिन",
+        emailLbl: "ईमेल:",
+        passwordLbl: "पासवर्ड:",
+        faceBtn: "🔍 फेस रिकग्निशन",
+        loginBtn: "लॉगिन",
         leader1: "सम्माननीय नेता",
         leader2: "पार्टी अध्यक्ष",
         leader3: "मुख्य नेता",
@@ -155,19 +191,25 @@
         bloodLbl: "ब्लड ग्रुप:",
         submitBtn: "पंजीकरण करें",
         footer: "© 2025 भारतीय जनता पार्टी | देश पहले",
-        alert: "आपका पंजीकरण सफलतापूर्वक प्राप्त हुआ। धन्यवाद!"
+        alert: "आपका पंजीकरण सफलतापूर्वक प्राप्त हुआ। धन्यवाद!",
+        loginAlert: "लॉगिन सफल! स्वागत है।"
       }
     };
 
-    const ids = ["pageTitle","leader1","leader2","leader3","leader4","formTitle","nameLbl","fatherLbl","ageLbl","genderLbl",
-      "maleOpt","femaleOpt","otherOpt","villageLbl","mandalLbl","districtLbl","stateLbl","professionLbl","phoneLbl",
-      "bloodLbl","submitBtn","footerTxt"];
+    const ids = ["pageTitle","loginTitle","emailLbl","passwordLbl","faceBtn","loginBtn",
+                 "leader1","leader2","leader3","leader4","formTitle","nameLbl","fatherLbl",
+                 "ageLbl","genderLbl","maleOpt","femaleOpt","otherOpt","villageLbl",
+                 "mandalLbl","districtLbl","stateLbl","professionLbl","phoneLbl","bloodLbl",
+                 "submitBtn","footerTxt"];
 
     const langSelect = document.getElementById('langSelect');
 
     function updateLanguage(lang) {
       const t = texts[lang];
-      ids.forEach(id => document.getElementById(id).textContent = t[id.replace('footerTxt','footer')]);
+      ids.forEach(id => {
+        const key = id === 'footerTxt' ? 'footer' : id;
+        if(document.getElementById(id)) document.getElementById(id).textContent = t[key];
+      });
     }
 
     langSelect.addEventListener('change', () => updateLanguage(langSelect.value));
@@ -178,6 +220,18 @@
       const lang = langSelect.value;
       alert(texts[lang].alert);
       e.target.reset();
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const lang = langSelect.value;
+      alert(texts[lang].loginAlert);
+      e.target.reset();
+    });
+
+    document.getElementById('faceBtn').addEventListener('click', () => {
+      const lang = langSelect.value;
+      alert("🔍 " + (lang==='te' ? "ముఖ గుర్తింపు అనుకరణ..." : lang==='hi' ? "फेस रिकग्निशन सिमुलेशन..." : "Face recognition simulation..."));
     });
   </script>
 </body>
